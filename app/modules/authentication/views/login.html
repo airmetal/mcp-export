@@ -1,0 +1,44 @@
+<md-content class="page-login" layout="row" layout-align="space-around" layout-padding="layout-padding"
+            ng-cloak="ng-cloak">
+    <md-card flex="flex" flex-gt-sm="50" flex-gt-md="33">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2><span>Login to Dimension Data Cloud</span></h2>
+            </div>
+        </md-toolbar>
+        <md-card-content>
+            <form name="Form">
+                <md-input-container class="md-block">
+                    <label>Username</label>
+                    <input type="text" name="username" ng-model="vm.formData.username" placeholder="login" required=""/>
+
+                    <div ng-messages="Form.username.$error" role="alert" multiple="">
+                        <div class="my-message" ng-message="required">You must supply a User Name.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Password</label>
+                    <input type="password" name="password" ng-model="vm.formData.password" placeholder="password"
+                           required="" md-maxlength="16"/>
+
+                    <div ng-messages="Form.password.$error" role="alert" multiple="">
+                        <div class="my-message" ng-message="required">You must supply a password.</div>
+                        <div class="my-message" ng-message="md-maxlength">Too long.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Region</label>
+                    <md-select ng-model="loginform.region">
+                        <md-option ng-repeat="region in regions track by $index" value="{{region.name}}">
+                            {{region.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-button class="md-raised md-primary" ng-disabled="!Form.$valid" ng-click="login()">&nbsp Login
+                    &nbsp
+                </md-button>
+            </form>
+        </md-card-content>
+    </md-card>
+</md-content>

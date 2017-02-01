@@ -1,0 +1,21 @@
+{
+  "name": "mcp-exporter",
+  "description": "MCP resource export project for AngularJS",
+  "version": "0.0.1",
+  "homepage": "https://github.com/airmetal/mcp-exporter",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-loader": "^1.5.0",
+    "angular-mocks": "^1.5.0",
+    "angular-bootstrap": "^2.5.0",
+    "angular-route": "^1.6.1",
+    "angular-cookies": "^1.6.1",
+    "abdmob/x2js": "^1.2.0",
+    "angular-material-icons": "^0.7.1",
+    "angular-material": "^1.1.1",
+    "angular-sanitize": "^1.6.1",
+    "ng-csv": "^0.3.6"
+  }
+}

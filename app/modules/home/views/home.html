@@ -1,0 +1,176 @@
+<div layout="column" layout-align="center">
+    <div layout="row" layout-align="center center">
+        <md-content class="md-padding" layout-xs="column" layout="row">
+            <div ng-controller="RegionController as region" layout="column" ng-cloak>
+                <md-content class="md-padding">
+                    <form ng-submit="$event.preventDefault()">
+                        <p class="md-title">Select a Region:</p>
+                        <md-autocomplete
+                                ng-disabled="region.isDisabled"
+                                md-no-cache="region.noCache"
+                                md-selected-item="region.selectedItem"
+                                md-search-text-change="region.searchTextChange(region.searchText)"
+                                md-search-text="region.searchText"
+                                md-selected-item-change="region.selectedItemChange(item)"
+                                md-items="item in region.querySearch(region.searchText)"
+                                md-item-text="item.display"
+                                md-min-length="0"
+                                placeholder="Region">
+                            <md-item-template>
+                                <span md-highlight-text="region.searchText"
+                                      md-highlight-flags="^i">{{item.display}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                No states matching values were found.
+                                <!--<a ng-click="home.newState(home.searchText)">Create a new one!</a>-->
+                            </md-not-found>
+                        </md-autocomplete>
+                        <br/>
+                        <!-- <md-checkbox ng-model="home.simulateQuery">Simulate query for results?</md-checkbox>
+                         <md-checkbox ng-model="home.noCache">Disable caching of queries?</md-checkbox>
+                         <md-checkbox ng-model="home.isDisabled">Disable the input?</md-checkbox>
+
+                         <p>By default, <code>md-autocomplete</code> will cache results when performing a query.  After the initial call is performed, it will use the cached results to eliminate unnecessary server requests or lookup logic. This can be disabled above.</p>
+                     --></form>
+                </md-content>
+            </div>
+            <div ng-controller="DCController as home" layout="column" ng-cloak>
+                <md-content class="md-padding">
+                    <form ng-submit="$event.preventDefault()">
+                        <p class="md-title">Select a Datacenter:</p>
+                        <md-autocomplete
+                                ng-disabled="home.isDisabled"
+                                md-no-cache="home.noCache"
+                                md-selected-item="home.selectedItem"
+                                md-search-text-change="home.searchTextChange(home.searchText)"
+                                md-search-text="home.searchText"
+                                md-selected-item-change="home.selectedItemChange(item)"
+                                md-items="item in home.querySearch(home.searchText)"
+                                md-item-text="item.display"
+                                md-min-length="0"
+                                placeholder="Datacenter">
+                            <md-item-template>
+                                <span md-highlight-text="home.searchText"
+                                      md-highlight-flags="^i">{{item.display}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                No states matching values were found.
+                                <!--<a ng-click="home.newState(home.searchText)">Create a new one!</a>-->
+                            </md-not-found>
+                        </md-autocomplete>
+                        <br/>
+                        <!-- <md-checkbox ng-model="home.simulateQuery">Simulate query for results?</md-checkbox>
+                         <md-checkbox ng-model="home.noCache">Disable caching of queries?</md-checkbox>
+                         <md-checkbox ng-model="home.isDisabled">Disable the input?</md-checkbox>
+
+                         <p>By default, <code>md-autocomplete</code> will cache results when performing a query.  After the initial call is performed, it will use the cached results to eliminate unnecessary server requests or lookup logic. This can be disabled above.</p>
+                     --></form>
+                </md-content>
+            </div>
+            <div ng-controller="NetController as netctrl" layout="column" ng-cloak>
+                <md-content class="md-padding">
+                    <form ng-submit="$event.preventDefault()">
+                        <p class="md-title">Select a Network Domain:</p>
+                        <md-autocomplete
+                                ng-disabled="netctrl.isDisabled"
+                                md-no-cache="netctrl.noCache"
+                                md-selected-item="netctrl.selectedItem"
+                                md-search-text-change="netctrl.searchTextChange(home.searchText)"
+                                md-search-text="netctrl.searchText"
+                                md-selected-item-change="netctrl.selectedItemChange(item)"
+                                md-items="item in netctrl.querySearch(netctrl.searchText)"
+                                md-item-text="item.display"
+                                md-min-length="0"
+                                placeholder="Network Domain">
+                            <md-item-template>
+                                <span md-highlight-text="netctrl.searchText"
+                                      md-highlight-flags="^i">{{item.display}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                No states matching values were found.
+                                <!--<a ng-click="home.newState(netctrl.searchText)">Create a new one!</a>-->
+                            </md-not-found>
+                        </md-autocomplete>
+                        <br/>
+                        <!--    <md-checkbox ng-model="netctrl.simulateQuery">Simulate query for results?</md-checkbox>
+                            <md-checkbox ng-model="netctrl.noCache">Disable caching of queries?</md-checkbox>
+                            <md-checkbox ng-model="netctrl.isDisabled">Disable the input?</md-checkbox>
+
+                            <p>By default, <code>md-autocomplete</code> will cache results when performing a query.  After the initial call is performed, it will use the cached results to eliminate unnecessary server requests or lookup logic. This can be disabled above.</p>
+                        --></form>
+                </md-content>
+            </div>
+            <!-- <div ng-controller="VlanController as vlanctrl" layout="column" ng-cloak>
+                 <md-content class="md-padding">
+                     <form ng-submit="$event.preventDefault()">
+                         <p class="md-title">Select a VLAN:</p>
+                         <md-autocomplete
+                                 ng-disabled="vlanctrl.isDisabled"
+                                 md-no-cache="vlanctrl.noCache"
+                                 md-selected-item="vlanctrl.selectedItem"
+                                 md-search-text-change="vlanctrl.searchTextChange(home.searchText)"
+                                 md-search-text="vlanctrl.searchText"
+                                 md-selected-item-change="vlanctrl.selectedItemChange(item)"
+                                 md-items="item in vlanctrl.querySearch(vlanctrl.searchText)"
+                                 md-item-text="item.display"
+                                 md-min-length="0"
+                                 placeholder="Vlan">
+                             <md-item-template>
+                                 <span md-highlight-text="vlanctrl.searchText"
+                                       md-highlight-flags="^i">{{item.display}}</span>
+                             </md-item-template>
+                             <md-not-found>
+                                 No states matching values were found.
+                                 &lt;!&ndash;<a ng-click="home.newState(vlanctrl.searchText)">Create a new one!</a>&ndash;&gt;
+                             </md-not-found>
+                         </md-autocomplete>
+                         <br/>
+                         &lt;!&ndash;    <md-checkbox ng-model="netctrl.simulateQuery">Simulate query for results?</md-checkbox>
+                             <md-checkbox ng-model="netctrl.noCache">Disable caching of queries?</md-checkbox>
+                             <md-checkbox ng-model="netctrl.isDisabled">Disable the input?</md-checkbox>
+
+                             <p>By default, <code>md-autocomplete</code> will cache results when performing a query.  After the initial call is performed, it will use the cached results to eliminate unnecessary server requests or lookup logic. This can be disabled above.</p>
+                         &ndash;&gt;</form>
+                     <div class="md-subhead">Base IP: {{vlanctrl.baseIp}}</div>
+                 </md-content>
+             </div>-->
+            <div ng-controller="VlanMultipleController" ng-cloak>
+                <md-content class="md-padding">
+                    <p class="md-title">Select Vlan(s):</p>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Vlan</label>
+                        <md-select multiple flex ng-model="presetVlan">
+                            <md-option ng-repeat="(key, value) in vlans" value="{{value.value}}">
+                                {{value.display}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </md-content>
+            </div>
+        </md-content>
+    </div>
+    <md-divider></md-divider>
+    <div ng-controller="ServersController" ng-cloak>
+        <div layout="row" layout-align="center">
+            <md-list>
+                <md-subheader class="md-no-sticky">List of Servers:</md-subheader>
+                <md-list-item ng-repeat="message in messages">
+                    <md-checkbox ng-click="updateMessages(message.id)" ng-model="message.selected"></md-checkbox>
+                    <p>{{message.title}}</p>
+                    <md-button class="md-secondary" ng-click="doSecondaryAction(message.id)" aria-label="chat"
+                    ">More Info</md-button>
+                </md-list-item>
+                <md-list-item ng-show="!messages.length">No servers were found.</md-list-item>
+
+            </md-list>
+            <md-content>
+                <section>
+                    <md-button class="md-raised csv-button" ng-disabled="isDisabled" ng-click="doExportToCSV(csvData)">
+                        Export to CSV
+                    </md-button>
+                </section>
+            </md-content>
+
+        </div>
+    </div>
+</div>
