@@ -67,8 +67,10 @@ angular.module('DC')
         self.selectedItemChange = selectedItemChange;
 
         $scope.$on('region', function (event, data) {
-            region = REGIONSMAP[data.name];
-            transformResults();
+            if (data.item) {
+                region = REGIONSMAP[data.name];
+                transformResults();
+            }
         });
 
 
