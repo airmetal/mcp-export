@@ -3,8 +3,8 @@
 angular.module('Authentication')
 
     .factory('AuthenticationService',
-    ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout',
-        function (Base64, $http, $cookieStore, $rootScope, $timeout) {
+    ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout', '$mdToast',
+        function (Base64, $http, $cookieStore, $rootScope, $timeout, $mdToast) {
             var service = {};
 
             service.Login = function (username, password, region, callback) {
@@ -41,6 +41,12 @@ angular.module('Authentication')
                     },
                     function (resp) {
                         var response = {success: false, data: resp};
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent('Failed to login!')
+                                .position("right")
+                                .hideDelay(1000)
+                        );
                         callback(response);
                     });
 
