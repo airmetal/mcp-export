@@ -30,7 +30,7 @@ angular.module('MCPExport', [
     'Authentication',
     'DC',
     'CloudServices',
-    'ngCsv'
+    'angular.filter'
 ])
 
     .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
