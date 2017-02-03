@@ -572,7 +572,7 @@ angular.module('CloudServices')
             all: function (region) {
                 var promise = $http({
                     method: 'GET',
-                    url: 'https://168.128.28.240/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/infrastructure/datacenter',
+                    url: 'http://localhost:8080/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/infrastructure/datacenter',
                     headers: {'Authorization': 'Basic ' + $rootScope.globals.currentUser.authdata}
                 }).then(function successCallback(response) {
                     // this callback will be called asynchronously
@@ -600,7 +600,7 @@ angular.module('CloudServices')
             getHttp: function (region) {
                 return $http({
                     method: 'GET',
-                    url: 'https://168.128.28.240/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/infrastructure/datacenter',
+                    url: 'http://localhost:8080/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/infrastructure/datacenter',
                     headers: {'Authorization': 'Basic ' + $rootScope.globals.currentUser.authdata}
                 })
             }
@@ -843,7 +843,7 @@ angular.module('CloudServices')
             all: function (datacenterId, region, mcpType, page) {
                 var promise = $http({
                     method: 'GET',
-                    url: 'https://168.128.28.240/v24/' + region + "/" + $rootScope.orgId + '/network/networkDomain?pageNumber=' + page,
+                    url: 'http://localhost:8080/v24/' + region + "/" + $rootScope.orgId + '/network/networkDomain?pageNumber=' + page,
                     headers: {'Authorization': 'Basic ' + $rootScope.encodedCredentials}
                 }).then(function successCallback(response) {
                     // this callback will be called asynchronously
@@ -862,7 +862,7 @@ angular.module('CloudServices')
             getvlan: function (networkId, region) {
                 var promise = $http({
                     method: 'GET',
-                    url: 'https://168.128.28.240/v24/' + region + "/" + $rootScope.orgId + '/network/vlan?networkDomainId=' + networkId,
+                    url: 'http://localhost:8080/v24/' + region + "/" + $rootScope.orgId + '/network/vlan?networkDomainId=' + networkId,
                     headers: {'Authorization': 'Basic ' + $rootScope.encodedCredentials}
                 }).then(function successCallback(response) {
                     // this callback will be called asynchronously
@@ -886,7 +886,7 @@ angular.module('CloudServices')
                 var encodedString = btoa(string);
                 var promise = $http({
                     method: 'GET',
-                    url: 'https://168.128.28.240/v24/' + region + "/" + $rootScope.orgId + '/network/vlan?vlan?id=' + vlanId,
+                    url: 'http://localhost:8080/v24/' + region + "/" + $rootScope.orgId + '/network/vlan?vlan?id=' + vlanId,
                     headers: {'Authorization': 'Basic ' + encodedString}
                 }).then(function successCallback(response) {
                     // this callback will be called asynchronously
@@ -905,7 +905,7 @@ angular.module('CloudServices')
             getHttp: function (datacenterId, region) {
                 return $http({
                     method: 'GET',
-                    url: 'https://168.128.28.240/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/network/networkDomain?datacenterId=' + datacenterId,
+                    url: 'http://localhost:8080/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/network/networkDomain?datacenterId=' + datacenterId,
                     headers: {'Authorization': 'Basic ' + $rootScope.globals.currentUser.authdata}
                 })
             },
@@ -913,7 +913,7 @@ angular.module('CloudServices')
             getVlanHttp: function (networkDomainId, region) {
                 return $http({
                     method: 'GET',
-                    url: 'https://168.128.28.240/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/network/vlan?networkDomainId=' + networkDomainId,
+                    url: 'http://localhost:8080/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/network/vlan?networkDomainId=' + networkDomainId,
                     headers: {'Authorization': 'Basic ' + $rootScope.globals.currentUser.authdata}
                 })
             }
@@ -925,7 +925,7 @@ angular.module('CloudServices')
             all: function (region) {
                 var promise = $http({
                     method: 'GET',
-                    url: 'https://168.128.28.240/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/server/server?pageNumber=' + page,
+                    url: 'http://localhost:8080/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/server/server?pageNumber=' + page,
                     headers: {'Authorization': 'Basic ' + $rootScope.globals.currentUser.authdata}
                 }).then(function successCallback(response) {
                     // this callback will be called asynchronously
@@ -944,7 +944,7 @@ angular.module('CloudServices')
             getserver: function (vlanId, region) {
                 var promise = $http({
                     method: 'GET',
-                    url: 'https://168.128.28.240/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/server/server?vlanId=' + vlanId,
+                    url: 'http://localhost:8080/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/server/server?vlanId=' + vlanId,
                     headers: {'Authorization': 'Basic ' + $rootScope.globals.currentUser.authdata}
                 }).then(function successCallback(response) {
                     // this callback will be called asynchronously
@@ -963,7 +963,7 @@ angular.module('CloudServices')
                 console.log("ID received: " + networkdomainId);
                 var promise = $http({
                     method: 'GET',
-                    url: 'https://168.128.28.240/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/server/server?networkDomainId=' + networkdomainId,
+                    url: 'http://localhost:8080/v24/' + region + "/" + $rootScope.globals.currentUser.orgId + '/server/server?networkDomainId=' + networkdomainId,
                     headers: {'Authorization': 'Basic ' + $rootScope.globals.currentUser.authdata}
                 }).then(function successCallback(response) {
                     // this callback will be called asynchronously
@@ -1053,7 +1053,7 @@ angular.module('CloudServices')
             details: function () {
 
                 var promise = $http({
-                    method: 'GET', url: 'https://168.128.28.240/v09',
+                    method: 'GET', url: 'http://localhost:8080/v09',
                     headers: {
                         'Authorization': 'Basic ' + $rootScope.encodedCredentials,
                         'Content-Type': 'application/x-www-form-urlencoded'

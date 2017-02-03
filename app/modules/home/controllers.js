@@ -624,4 +624,6 @@ angular.module('DC')
                 bends.selected = $scope.selectedAll;
             });
         };
+
+
     }]);

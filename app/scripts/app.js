@@ -1,8 +1,8 @@
 'use strict';
-
 // declare modules
 angular.module('Authentication', []);
 angular.module('CloudServices', []);
+angular.module('BulkUsers', []);
 angular.module('DC', [])
     .constant(
     'REGIONSMAP', {
@@ -18,7 +18,6 @@ angular.module('DC', [])
     'REGIONS', 'NorthAmerica,Europe,Australia,Africa,AsiaPacific,SouthAmerica,Canada'
 );
 
-
 angular.module('MCPExport', [
     'ngMaterial',
     'ngAnimate',
@@ -30,6 +29,7 @@ angular.module('MCPExport', [
     'Authentication',
     'DC',
     'CloudServices',
+    'BulkUsers',
     'angular.filter'
 ])
 
@@ -45,6 +45,11 @@ angular.module('MCPExport', [
             .when('/', {
                 controller: 'RegionController',
                 templateUrl: 'modules/home/views/home.html'
+            })
+
+            .when('/bulkusers', {
+                controller: 'BulkUsersController',
+                templateUrl: 'modules/bulkusers/views/bulkusers.html'
             })
 
             .otherwise({redirectTo: '/login'});

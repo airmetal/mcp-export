@@ -23,7 +23,7 @@ angular.module('Authentication')
                 /* Use this for real authentication
                  ----------------------------------------------*/
                 $http({
-                    method: 'GET', url: 'https://168.128.28.240/v09/' + region,
+                    method: 'GET', url: 'https://168.128.28.240/v09/' + region + "/myaccount",
                     headers: {
                         'Authorization': 'Basic ' + Base64.encode(username + ':' + password),
                         'Content-Type': 'application/x-www-form-urlencoded'
@@ -54,13 +54,19 @@ angular.module('Authentication')
 
             service.SetCredentials = function (username, password, region, orgId) {
                 var authdata = Base64.encode(username + ':' + password);
+                var userAllowed = false;
+
+                if (username == 'ddcsinademo') {
+                    var userAllowed = true;
+                }
 
                 $rootScope.globals = {
                     currentUser: {
                         username: username,
                         authdata: authdata,
                         region: region,
-                        orgId: orgId
+                        orgId: orgId,
+                        userallowed: userAllowed
                     }
                 };
 
